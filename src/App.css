@@ -63,6 +63,13 @@ nav ul {
 a {
   color: var(--blue-clr);
   letter-spacing: 0.8px;
-  font-size: 1rem;
+  font-size: 1.4rem;
   margin-left: 50px;
+}
+
+a:hover {
+  text-decoration-line: underline;
+  text-underline-offset: 10px;
+  text-decoration-color: var(--blue-clr);
+  text-decoration-thickness: 2px;
 }
