@@ -19,30 +19,31 @@ const links = [
     path: '/Profile',
     text: 'My profile',
   },
-
 ];
 
 const Nav = () => (
-  <div className="nav">
-    <div className="left-nav">
+  <nav>
+    <div className="nav-left">
       <img className="logo" src={space} alt="space" />
       <h1>Space Traveler&apos;s Hub</h1>
     </div>
-    <ul className="right-nav">
-      {links.map((link) => (
-        <li key={link.id}>
-          <NavLink
-            to={link.path}
-            style={({ isActive }) => ({
-              textDecoration: isActive ? 'underline' : null,
-            })}
-          >
-            {link.text}
-          </NavLink>
-        </li>
-      ))}
-    </ul>
-  </div>
+    <div className="nav-right">
+      <ul>
+        {links.map((link) => (
+          <li key={link.id}>
+            <NavLink
+              to={link.path}
+              style={({ isActive }) => ({
+                textDecoration: isActive ? 'underline' : null,
+              })}
+            >
+              {link.text}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
 );
 
 export default Nav;
