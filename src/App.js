@@ -1,9 +1,9 @@
-import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Nav from './components/Nav';
 import Rockect from './components/pages/Rockect';
 import Missions from './components/pages/Missions';
 import Profile from './components/pages/Profile';
+import './App.css';
 
 function App() {
   return (

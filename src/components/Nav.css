@@ -1,8 +1,19 @@
-.nav {
+nav {
+  width: 100%;
+  background: #fff;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-content: center;
-  padding: 2rem;
+  font-family: 'Open Sans', sans-serif;
+  height: 15vh;
+  margin-top: 40px;
+  padding-bottom: 50px;
+  border-bottom: solid 1px #c3c3c3;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
 }
 
 .logo {
@@ -10,18 +21,26 @@
   height: 75px;
 }
 
-.left-nav {
-  display: flex;
-  gap: 0.5rem;
+.nav-left h1 {
+  color: var(--header-clr);
+  margin-left: 30px;
+  font-size: 2rem;
 }
 
-.right-nav {
+nav ul {
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 0.5rem;
 }
 
-.right-nav li {
-  list-style: none;
+a {
+  color: var(--blue-clr);
+  letter-spacing: 0.8px;
+  font-size: 1.4rem;
+  margin-left: 50px;
+}
+
+a:hover {
+  text-decoration-line: underline;
+  text-underline-offset: 10px;
+  text-decoration-color: var(--blue-clr);
+  text-decoration-thickness: 2px;
 }
