@@ -1,0 +1,33 @@
+.row {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.image-section {
+  flex-basis: 40%;
+}
+
+.rocket-pic {
+  width: 100%;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 15px 30px;
+  background: var(--blue-clr);
+  border-radius: 6px;
+  color: white;
+  font-size: 1rem;
+}
+
+.btn2 {
+  margin-top: 20px;
+  padding: 15px 30px;
+  background: white;
+  border-radius: 6px;
+  color: var(--text-clr);
+  font-size: 1rem;
+  border: solid 1px #727477;
+}
