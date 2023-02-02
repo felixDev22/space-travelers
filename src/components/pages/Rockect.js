@@ -1,68 +1,37 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable import/extensions */
 import React from 'react';
-import rocket1 from '../../assets/images/rocket1.jpeg';
+import PropTypes from 'prop-types';
 import './Rocket.css';
 
-const Rockect = () => (
-  <div className="rocket-container">
-    <div className="row">
-      <div className="image-section">
-        <img src={rocket1} alt="rocket" className="rocket-pic" />
-      </div>
-      <div className="text-section">
-        <h2>Falcon 1</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in
-        </p>
-        <button type="button" className="btn">
-          Reserve Rocket
-        </button>
-      </div>
-    </div>
-    <div className="row">
-      <div className="image-section">
-        <img src={rocket1} alt="rocket" className="rocket-pic" />
-      </div>
-      <div className="text-section">
-        <h2>Falcon 1</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in
-        </p>
-        <button type="button" className="btn2">
-          Cancel Reservation
-        </button>
-      </div>
-    </div>
-    <div className="row">
-      <div className="image-section">
-        <img src={rocket1} alt="rocket" className="rocket-pic" />
-      </div>
-      <div className="text-section">
-        <h2>Falcon 1</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in
-        </p>
-        <button type="button" className="btn">
-          Reserve Rocket
-        </button>
-      </div>
-    </div>
-  </div>
-);
+const Rocket = (props) => {
+  const { name, description, image, reserved } = props;
 
-export default Rockect;
+  return (
+    <>
+      <li className="row">
+        <div className="image-section">
+          <img src={image} alt={name} />
+        </div>
+        <div className="text-section">
+          <h2 className="RocketTitle">{name}</h2>
+          <p className="RocketTexts">
+            {reserved && <span className="isReserved">Reserved</span>}
+            {description}
+          </p>
+          <button type="button" className="reserveButton">
+            Reserve Rocket
+          </button>
+        </div>
+      </li>
+    </>
+  );
+};
+
+Rocket.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.string,
+  img: PropTypes.string,
+}.isRequired;
+
+export default Rocket;
