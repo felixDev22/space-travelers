@@ -39,11 +39,3 @@ img {
   font-size: 0.8rem;
   border: solid 1px #727477;
 }
-
-.badge {
-  padding: 2px 5px;
-  background: var(--reserve-clr);
-  color: white;
-  margin-right: 8px;
-  border-radius: 3px;
-}
