@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const ROCKET_DATA = 'spaceTravelsHub/ROCKET_DATA';
 const BOOK_ROCKET = 'spaceTravelsHub/BOOK_ROCKET';
+const CANCEL_RESERVATION = 'spaceTravelsHub/CANCEL_RESERVATION';
 
 // Action
 const GetRockets = createAsyncThunk(ROCKET_DATA, async () => {
@@ -15,6 +16,11 @@ const GetRockets = createAsyncThunk(ROCKET_DATA, async () => {
 
 export const bookRocket = (payload) => ({
   type: BOOK_ROCKET,
+  payload,
+});
+
+export const cancelReservation = (payload) => ({
+  type: CANCEL_RESERVATION,
   payload,
 });
 
@@ -37,6 +43,14 @@ const rocketReducer = createSlice({
       const newState = state.data.map((rocket) => {
         if (rocket.id !== action.payload.id) return rocket;
         return { ...rocket, reserved: true };
+      });
+      state.data = newState;
+    });
+
+    builder.addCase(CANCEL_RESERVATION, (state, action) => {
+      const newState = state.data.map((rocket) => {
+        if (rocket.id !== action.payload.id) return rocket;
+        return { ...rocket, reserved: false };
       });
       state.data = newState;
     });
