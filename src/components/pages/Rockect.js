@@ -1,11 +1,32 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './Rocket.css';
+import { bookRocket } from '../../redux/rockets/RocketApi';
 
 const RocketsUI = () => {
   // get rockets data from the store
   const rocketList = useSelector((state) => state.rockets.data);
-
   return (
+      <div className="container">
+      {rocketList.map((rocket) => (
+        <RocketCard key={rocket.id} rocket={rocket} />
+      ))}
+    </div>
+  );
+};
+
+// reservation state
+const RocketCard = ({ rocket }) => {
+  const [reserved, setReserved] = useState(rocket.reserved);
+  const [btnText, setBtnText] = useState(
+    reserved ? 'Cancel Reservation' : 'Reserve Rocket',
+  );
+  const [btnClass, setBtnClass] = useState(
+    reserved ? 'cancel-btn' : 'reserveButton',
+  );
+  const dispatch = useDispatch();
+
+
+
     <div className="rocket-container">
       {rocketList.map((rocket) => (
         <div key={rocket.id} className="row">
