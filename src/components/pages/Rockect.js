@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import './Rocket.css';
 
 const RocketsUI = () => {
+  // get rockets data from the store
   const rocketList = useSelector((state) => state.rockets.data);
 
   return (
@@ -10,7 +11,7 @@ const RocketsUI = () => {
         <div key={rocket.id} className="row">
           <div className="image-section">
             <img
-              src={rocket.flickr_images[2]}
+              src={rocket.flickr_images[1]}
               alt="rocket"
               className="rocket-pic"
             />
