@@ -1,37 +1,31 @@
-/* eslint-disable object-curly-newline */
-/* eslint-disable import/extensions */
-import React from 'react';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import './Rocket.css';
 
-const Rocket = (props) => {
-  const { name, description, image, reserved } = props;
+const RocketsUI = () => {
+  const rocketList = useSelector((state) => state.rockets.data);
 
   return (
-    <>
-      <li className="row">
-        <div className="image-section">
-          <img src={image} alt={name} />
+    <div className="rocket-container">
+      {rocketList.map((rocket) => (
+        <div key={rocket.id} className="row">
+          <div className="image-section">
+            <img
+              src={rocket.flickr_images[2]}
+              alt="rocket"
+              className="rocket-pic"
+            />
+          </div>
+          <div className="rocket-text">
+            <h3 className="title ">{rocket.name}</h3>
+            <p className="description">{rocket.description}</p>
+            <button type="button" className="reserveButton">
+              Reserve Rocket
+            </button>
+          </div>
         </div>
-        <div className="text-section">
-          <h2 className="RocketTitle">{name}</h2>
-          <p className="RocketTexts">
-            {reserved && <span className="isReserved">Reserved</span>}
-            {description}
-          </p>
-          <button type="button" className="reserveButton">
-            Reserve Rocket
-          </button>
-        </div>
-      </li>
-    </>
+      ))}
+    </div>
   );
 };
 
-Rocket.propTypes = {
-  name: PropTypes.string,
-  description: PropTypes.string,
-  img: PropTypes.string,
-}.isRequired;
-
-export default Rocket;
+export default RocketsUI;

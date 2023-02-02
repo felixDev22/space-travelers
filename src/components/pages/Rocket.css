@@ -6,11 +6,13 @@
 }
 
 .image-section {
-  flex-basis: 40%;
+  flex-basis: 30%;
 }
 
 .rocket-pic {
-  width: 100%;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
 }
 
 .reserveButton {
