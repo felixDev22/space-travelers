@@ -2,11 +2,12 @@
   margin-top: 40px;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 30px;
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .image-section {
@@ -15,12 +16,8 @@ img {
 
 .rocket-pic {
   width: 300px;
-  height: auto;
+  height: 100%;
   object-fit: cover;
-}
-
-.rocket-text {
-  flex-basis: 75%;
 }
 
 .reserveButton,
