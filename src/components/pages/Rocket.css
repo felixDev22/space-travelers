@@ -10,7 +10,7 @@ img {
 }
 
 .image-section {
-  width: 30%;
+  flex-basis: 30%;
 }
 
 .rocket-pic {
