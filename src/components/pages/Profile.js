@@ -11,15 +11,15 @@ const Profile = () => {
   return (
     <div className="profile-container">
       <div className="mission-holder">
-          <h2>My Missions</h2>
-          <ListGroup>
-            {Missions.map(((m) => (
-              m.isMember && (
+        <h2>My Missions</h2>
+        <ListGroup>
+          {Missions.map(((m) => (
+            m.isMember && (
               <ListGroup.Item key={m.mission_id}>{m.mission_name}</ListGroup.Item>
-              ))))}
-          </ListGroup>
-        </div>
-    
+            ))))}
+        </ListGroup>
+      </div>
+
       <div className="rockets-holder">
         <h2>My Rockets</h2>
         <ul className="show-rockets">
