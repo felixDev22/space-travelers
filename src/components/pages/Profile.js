@@ -14,7 +14,7 @@ const Profile = () => {
         <h2>My Missions</h2>
         <ListGroup>
           {Missions.map(((m) => (
-          <ListGroup.Item key={m.mission}>{m.mission_name}</ListGroup.Item>
+            <ListGroup.Item key={m.mission}>{m.mission_name}</ListGroup.Item>
           )))}
         </ListGroup>
       </div>
