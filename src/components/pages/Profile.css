@@ -9,11 +9,13 @@ h2 {
   margin-bottom: 10px;
 }
 
-.rockets-holder {
-  flex-basis: 40%;
+.rockets-holder,
+.mission-holder {
+  flex-basis: 50%;
 }
 
-.show-rockets {
+.show-rockets,
+.mission-list {
   list-style-type: none;
   padding: 0;
   border: 1px solid var(--light-grey);

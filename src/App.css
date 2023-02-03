@@ -23,8 +23,9 @@ body {
 }
 
 .App {
-  margin: 0 10%;
-  height: 100vh;
+  margin: 20px 10%;
+  height: auto;
+  margin-bottom: 70px;
 }
 
 p {

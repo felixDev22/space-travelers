@@ -8,6 +8,12 @@ const Profile = () => {
   return (
     <div className="profile-container">
       <div className="rockets-holder">
+        <h2>My Missions</h2>
+        <ul className="show-rockets">
+          <li>missions list</li>
+        </ul>
+      </div>
+      <div className="rockets-holder">
         <h2>My Rockets</h2>
         <ul className="show-rockets">
           {rocketList.map((rocket) => {
