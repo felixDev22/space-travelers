@@ -7,9 +7,9 @@ const Profile = () => {
 
   return (
     <div className="profile-container">
-      <div className="rockets-holder">
+      <div className="mission-holder">
         <h2>My Missions</h2>
-        <ul className="show-rockets">
+        <ul className="mission-list">
           <li>missions list</li>
         </ul>
       </div>
