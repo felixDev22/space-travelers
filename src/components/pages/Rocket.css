@@ -2,25 +2,22 @@
   margin-top: 40px;
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 30px;
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .image-section {
-  width: 30%;
+  flex-basis: 30%;
 }
 
 .rocket-pic {
   width: 300px;
-  height: auto;
+  height: 100%;
   object-fit: cover;
-}
-
-.rocket-text {
-  flex-basis: 60%;
 }
 
 .reserveButton,
@@ -41,12 +38,4 @@ img {
   color: var(--text-clr);
   font-size: 0.8rem;
   border: solid 1px #727477;
-}
-
-.badge {
-  padding: 2px 5px;
-  background: var(--reserve-clr);
-  color: white;
-  margin-right: 8px;
-  border-radius: 3px;
 }
