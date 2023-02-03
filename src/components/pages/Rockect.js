@@ -54,7 +54,14 @@ const RocketCard = ({ rocket }) => {
         </div>
         <div className="rocket-text">
           <h3 className="title ">{rocket.name}</h3>
-          <p className="description">{rocket.description}</p>
+          <p className="description">
+            {reserved && ( // render reserved Rocket button
+              <button type="button" className="badge">
+                Reserved
+              </button>
+            )}
+            {rocket.description}
+          </p>
           <button
             type="button"
             className={btnClass}
