@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from './components/Nav';
 import RockectsUI from './components/pages/Rockect';
 import Missions from './components/pages/Missions';
