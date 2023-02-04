@@ -1,78 +1,44 @@
-/* eslint-disable react/prop-types */
-import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
-import './Rocket.css';
-import { bookRocket, cancelReservation } from '../../redux/rockets/RocketApi';
+import React, { useEffect } from 'react';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import RockectDisplay from './RockectDisplay';
+import setRockect, { bookRocket } from '../../redux/rockets/RockectAction';
 
-const RocketsUI = () => {
-  // get rockets data from the store
-  const rocketList = useSelector((state) => state.rockets.data);
-  return (
-    <div className="container">
-      {rocketList.map((rocket) => (
-        <RocketCard key={rocket.id} rocket={rocket} />
-      ))}
-    </div>
-  );
-};
-
-// reservation state
-const RocketCard = ({ rocket }) => {
-  const [reserved, setReserved] = useState(rocket.reserved);
-  const [btnText, setBtnText] = useState(
-    reserved ? 'Cancel Reservation' : 'Reserve Rocket',
-  );
-  const [btnClass, setBtnClass] = useState(
-    reserved ? 'cancel-btn' : 'reserveButton',
-  );
+const Rockect = () => {
+  const rockects = useSelector((state) => state.rockects);
   const dispatch = useDispatch();
-
-  // handle button click events
-  const onClickHandler = (id) => {
-    if (reserved) {
-      dispatch(cancelReservation({ id }));
-      setReserved(false);
-      setBtnText('Reserve Rocket');
-      setBtnClass('reserveButton');
-    } else {
-      dispatch(bookRocket({ id }));
-      setReserved(true);
-      setBtnText('Cancel Reservation');
-      setBtnClass('cancel-btn');
-    }
+  const fetchRockects = async () => {
+    const response = await axios
+      .get('https://api.spacexdata.com/v3/rockets')
+      .catch(() => {
+      });
+    dispatch(setRockect(response.data));
+    return rockects;
   };
 
+  useEffect(() => {
+    fetchRockects();
+  }, []);
+
+  const bookingHandler = (id) => {
+    dispatch(bookRocket(id));
+  };
   return (
-    <div className="rocket-container">
-      <div className="row">
-        <div className="image-section">
-          <img
-            src={rocket.flickr_images[1]}
-            alt="rocket"
-            className="rocket-pic"
+    <div>
+      {rockects
+        && rockects.map((rockect) => (
+          <RockectDisplay
+            key={rockect.id}
+            id={rockect.id}
+            reserved={rockect.reserved}
+            name={rockect.rocket_name}
+            description={rockect.description}
+            img={rockect.flickr_images}
+            bookingHandler={bookingHandler}
           />
-        </div>
-        <div className="rocket-text">
-          <h3 className="title ">{rocket.name}</h3>
-          <p className="description">
-            {reserved && ( // render reserved Rocket button
-              <button type="button" className="badge">
-                Reserved
-              </button>
-            )}
-            {rocket.description}
-          </p>
-          <button
-            type="button"
-            className={btnClass}
-            onClick={() => onClickHandler(rocket.id)}
-          >
-            {btnText}
-          </button>
-        </div>
-      </div>
+        ))}
     </div>
   );
 };
 
-export default RocketsUI;
+export default Rockect;

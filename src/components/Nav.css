@@ -1,46 +1,61 @@
-nav {
-  width: 100%;
-  background: #fff;
+.nav {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  font-family: 'Open Sans', sans-serif;
-  height: 15vh;
-  margin-top: 40px;
-  padding-bottom: 50px;
-  border-bottom: solid 1px #c3c3c3;
-}
-
-.nav-left {
-  display: flex;
-  align-items: center;
+  padding: 0 2rem 2rem 2rem;
 }
 
 .logo {
-  width: 75px;
-  height: 75px;
+  width: 10vw;
+  height: 10vw;
+  padding-right: 1vw;
 }
 
-.nav-left h1 {
-  color: var(--header-clr);
-  margin-left: 30px;
-  font-size: 2rem;
-}
-
-nav ul {
+.left-nav {
   display: flex;
+  align-items: center;
 }
 
-a {
-  color: var(--blue-clr);
-  letter-spacing: 0.8px;
-  font-size: 0.9rem;
-  margin-left: 50px;
+.left-nav h1 {
+  font-size: 2vw;
+  font-weight: bolder;
+  color: gray;
 }
 
-a:hover {
-  text-decoration-line: underline;
-  text-underline-offset: 10px;
-  text-decoration-color: var(--blue-clr);
-  text-decoration-thickness: 2px;
+.right-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav:nth-child(4) {
+  border-left: 2px solid grey;
+}
+
+.right-nav a {
+  text-decoration: none;
+  font-size: 2vw;
+}
+
+@media only screen and (max-width: 540px) {
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+  }
+
+  .logo {
+    width: 8vw;
+    height: 8vw;
+    padding-right: 0.5vw;
+  }
+
+  .left-nav h1 {
+    font-size: 3vw;
+  }
+
+  .right-nav a {
+    text-decoration: none;
+    font-size: 3.3vw;
+    gap: 0.3rem;
+  }
 }
